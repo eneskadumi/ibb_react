@@ -1,10 +1,21 @@
 // rcc
 
 import React, { Component } from 'react'
+import Header from './component/Header';
+import Main from './component/Main';
+import Footer from './component/Footer';
+import { withTranslation } from 'react-i18next';
+
+
+// import { withTranslation } from 'react-i18next';
 
 
 // CLASS
-export default class RouterBlog extends Component {
+class RouterBlog extends Component {
+
+    // displayName
+    static displayName = " Router_Blog";
+
 
     // constructor
     constructor(props) {
@@ -24,8 +35,21 @@ export default class RouterBlog extends Component {
     // Render
     render() {
         return (
-            <div>RouterBlog</div>
+            <React.Fragment>
+
+                <Header />
+                <br />
+                <Main />
+                <br />
+                <Footer />
+
+            </React.Fragment>
         ) // end return
     } //end render()
 }
 //end class
+
+// Class adı aşşağıda gösterme
+
+// // Higher Order Component
+export default withTranslation()(RouterBlog)
