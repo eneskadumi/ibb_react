@@ -4,13 +4,14 @@ import React, { Component } from 'react'
 import Header from './component/Header';
 import Footer from './component/Footer';
 import { withTranslation } from 'react-i18next';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 // Component CRUD
 import BlogList from './component/blog/BlogList';
 import BlogUpdate from './component/blog/BlogUpdate';
 import BlogView from './component/blog/BlogView';
 import BlogCreate from './component/blog/BlogCreate';
+import Main from './component/Main';
 
 
 // import { withTranslation } from 'react-i18next';
@@ -48,14 +49,15 @@ class RouterBlog extends Component {
 
                 <div className="container"></div>
                 <Routes>
-                    <Route path='/' element = {<BlogList/>} />
+                    <Route path='/' element = {<Main/>} />
                     <Route path='/blog/list' element = {<BlogList/>} />
                     <Route path='/blog/create' element = {<BlogCreate/>} />
                     <Route path='/blog/view/:id' element = {<BlogView/>} />
                     <Route path='/blog/update/:id' element = {<BlogUpdate/>} />
+                    <Route path='*' element = {<Navigate to ="/" />} />
                 </Routes>
                 {/* FOOTER */}
-                <Footer copy ="&copy; 2021 Copyrigh"/>
+                <Footer copy ="&copy; 2021 - 2023 Copyrigh"/>
 
             </React.Fragment>
         ) // end return
