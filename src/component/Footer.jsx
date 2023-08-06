@@ -156,9 +156,9 @@ class Footer extends Component {
                             className="text-center p-4"
                             style={{ backgroundColor: "rgba(0, 0, 0, 0.025)" }}
                         >
-                            © 2021 Copyright:
+
                             <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-                                MDBootstrap.com
+                                {this.props.copy}
                             </a>
                         </div>
                         {/* Copyright */}
