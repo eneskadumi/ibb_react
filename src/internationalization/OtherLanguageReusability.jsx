@@ -25,7 +25,7 @@ function OtherLanguageReusability(props) {
     // RETURN
     return (
         <React.Fragment>
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li className="nav-item">
                     <Link className="nav-link" onClick={() => internationalizationLanguageServices('tr')}>
                         <img src={tr_flag} style={{ height: "20px" }} alt='tr' />

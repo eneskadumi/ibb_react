@@ -13,8 +13,8 @@ export default class Main extends Component {
 
 
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
                     <strong className='text-primary'>Merhaba!</strong>
 
