@@ -15,7 +15,17 @@ class BlogList extends Component {
     this.state = {
       blogList: [],
     };
+
+
     // BIND
+
+    this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
+    this.view = this.view.bind(this);
+    this.delete = this.delete.bind(this);
+
+
+
 
   }
 
@@ -38,14 +48,38 @@ class BlogList extends Component {
 
   // FUNCTION
 
+  //CREATE
+  create() {
+    alert("Create Success")
+  }
 
+  //UPDATE
+  update(id) {
+    alert(id);
+  }
+
+  //DElETE
+  delete(id) {
+    alert(id);
+  }
+
+  //VİEW
+  view(id) {
+    alert(id);
+  }
+
+
+
+  // RENDER
   render() {
     const { t } = this.props;
     const { blogList } = this.state
 
     return (
       <React.Fragment>
-        <h1 className="text-center display-4 text-uppercase">Blog List</h1>
+        <h1 className="text-center display-4 text-uppercase mt-5">Blog List</h1>
+        <button className="btn btn-primary" onClick={this.create}><i class="fa-solid fa-plus"></i> Blog Create</button>
+        <button className="btn btn-danger ms-2"><i class="fa-solid fa-trash"></i> Blog All Delete</button>
         <table className="table table-hover table-striped">
           <thead>
             <tr>
@@ -68,9 +102,27 @@ class BlogList extends Component {
                   <td>{temp.header}</td>
                   <td>{temp.content}</td>
                   <td>{temp.date}</td>
-                  <td><i class="fa-solid fa-pen-to-square" style={{ "cursor": "pointer" }}></i></td>
-                  <td><i class="fa-solid fa-eye" style={{ "cursor": "pointer" }}></i></td>
-                  <td><i className="fa-solid fa-trash text-danger" style={{ "cursor": "pointer" }}></i></td>
+                  <td>
+                    <i class="fa-solid fa-pen-to-square"
+                      style={{ "cursor": "pointer" }}
+                      onClick={() => this.update(temp.id)}></i>
+                  </td>
+                  <td>
+                    <i class="fa-solid fa-eye"
+                      style={{ "cursor": "pointer" }}
+                      onClick={this.view(temp.id)}></i>
+                  </td>
+                  <td>
+                    <i className="fa-solid fa-trash text-danger"
+                      style={{ "cursor": "pointer" }}
+                      onClick={() => {
+                        if (window.confirm("Are you sure to delete")) {
+                          this.delete(temp.id);
+                        }
+                        else
+                          window.alert("silinmedi")
+                      }}></i>
+                  </td>
                 </tr>
               )
             }
