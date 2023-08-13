@@ -83,9 +83,9 @@ class BlogList extends Component {
 
     return (
       <React.Fragment>
-        <h1 className="text-center display-4 text-uppercase mt-5">Blog List</h1>
+        <h1 className="text-center display-4 text-uppercase mt-5">{t('blog_list')}</h1>
         <Link to="/blog/create" className="btn btn-primary"><i class="fa-solid fa-plus"></i> {t('blog_create')}</Link>
-        <button className="btn btn-danger ms-2"><i class="fa-solid fa-trash"></i> Blog All Delete</button>
+        <button className="btn btn-danger ms-2"><i class="fa-solid fa-trash"></i>{t('blog_all_delete')}</button>
         <table className="table table-hover table-striped">
           <thead>
             <tr>

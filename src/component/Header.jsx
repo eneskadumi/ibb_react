@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 import OtherLanguageReusability from '../internationalization/OtherLanguageReusability';
+import { t } from 'i18next';
 
 
 
@@ -48,23 +49,28 @@ class Header extends Component {
                         <div className="collapse navbar-collapse" id="collapsibleNavId">
                             <ul className="navbar-nav me-auto mt-2 mt-lg-0">
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="#" aria-current="page">
+                                    <a className="nav-link active" href="main.jsx" aria-current="page">
                                         {this.props.t('homepage')} <span className="visually-hidden">(current)</span>
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
-                                    {this.props.t('about')}
+                                        {this.props.t('about')}
                                     </a>
                                 </li>
 
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">
-                                    {this.props.t('blog')}
+                                        {this.props.t('blog')}
                                     </a>
                                 </li>
 
-                                {/* <li className="nav-item dropdown">
+
+                            </ul>
+
+                            <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+
+                                <li className="nav-item dropdown">
                                     <a
                                         className="nav-link dropdown-toggle"
                                         href="#"
@@ -73,17 +79,19 @@ class Header extends Component {
                                         aria-haspopup="true"
                                         aria-expanded="false"
                                     >
-                                        Dropdown
+                                        {t('member_process')}
                                     </a>
                                     <div className="dropdown-menu" aria-labelledby="dropdownId">
                                         <a className="dropdown-item" href="#">
-                                            Action 1
+                                            {t('login')}
                                         </a>
                                         <a className="dropdown-item" href="#">
-                                            Action 2
+                                            {t('register')}
                                         </a>
                                     </div>
-                                </li> */}
+                                </li>
+
+
                             </ul>
 
                             <OtherLanguageReusability />
