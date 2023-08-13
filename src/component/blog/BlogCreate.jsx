@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next';
 
+
 // CLASS
 class BlogCreate extends Component {
   // Constructor
@@ -12,6 +13,9 @@ class BlogCreate extends Component {
       header: null,
       content: null,
       blogDto: {}, // object
+      isRead: false, // sözleşme kuralları
+
+
 
     }; //end constructor
 
@@ -21,12 +25,19 @@ class BlogCreate extends Component {
   // CDM
 
   // FUNCTION
-
+  onChangeIsRead = (event) => {
+    this.setState({
+      isRead: event.target.checked
+    })
+  }
 
 
   // RENDER
   render() {
     const { t } = this.props;
+    const { isRead, multipleRequest } = this.state;
+
+
     // RETURN
     return (
       <React.Fragment>
@@ -64,12 +75,31 @@ class BlogCreate extends Component {
 
           </div>
 
+          <div className="form-check mb-3">
+            <input
+              className="form-check-input"
+              type="checkbox"
+              onChange={this.onChangeIsRead}
+              id="isReadId"
+              name="isReadId" />
+            <label className="form-check-label" htmlFor="isReadId"> Anlaşmayı okunuz mu </label>
+          </div>
+
+          {/* RESET */}
+          <button
+            className="btn btn-danger mb-5 me-2">{t('reset')}
+          </button>
+
           {/* SUBMIT */}
+          <button
+            type="submit"
+            className="btn btn-primary mb-5"
+            disabled={(!isRead) || (multipleRequest)}
+            onClick={this.createSubmit}>
+            {(this.state.spinnerData) && <span className="spinner-border text-warning"></span>}
+            {t('submit')}
+          </button>
 
-          <button className="btn btn-danger mb-5 me-2">{t("reset")}</button>
-
-
-          <button className="btn btn-primary mb-5">{t("submit")}</button>
           <br /> <br /> <br /> <br />
         </form>
       </React.Fragment>
