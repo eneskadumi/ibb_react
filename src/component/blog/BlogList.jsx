@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { withTranslation } from 'react-i18next'
 import BlogApi from '../../services/BlogApi';
+import { Link } from 'react-router-dom';
 
 // CLASS
 class BlogList extends Component {
@@ -19,7 +20,6 @@ class BlogList extends Component {
 
     // BIND
 
-    this.create = this.create.bind(this);
     this.update = this.update.bind(this);
     this.view = this.view.bind(this);
     this.delete = this.delete.bind(this);
@@ -48,24 +48,30 @@ class BlogList extends Component {
 
   // FUNCTION
 
-  //CREATE
-  create() {
-    alert("Create Success")
-  }
-
   //UPDATE
   update(id) {
-    alert(id);
+    // alert(id);
   }
 
   //DElETE
   delete(id) {
-    alert(id);
+    // alert(id);
+
+    BlogApi.blogServiceDeleteId(id)
+      .then((response) => {
+        this.setState({
+          blogList: this.state.bloglist.filter((temp_filter) => temp_filter.id != id)
+        })
+      })
+      .catch((err) => {
+        alert("Veri silmede bir hata var");
+      });
+
   }
 
   //VİEW
   view(id) {
-    alert(id);
+    // alert(id);
   }
 
 
@@ -78,7 +84,7 @@ class BlogList extends Component {
     return (
       <React.Fragment>
         <h1 className="text-center display-4 text-uppercase mt-5">Blog List</h1>
-        <button className="btn btn-primary" onClick={this.create}><i class="fa-solid fa-plus"></i> Blog Create</button>
+        <Link to="/blog/create" className="btn btn-primary"><i class="fa-solid fa-plus"></i> {t('blog_create')}</Link>
         <button className="btn btn-danger ms-2"><i class="fa-solid fa-trash"></i> Blog All Delete</button>
         <table className="table table-hover table-striped">
           <thead>
